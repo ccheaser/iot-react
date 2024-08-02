@@ -1,9 +1,34 @@
-.platforms-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Kartlar yatayda hizalanır ve yer kalmadığında alt satıra geçer */
-    gap: 20px; /* Kartlar arasındaki boşluk */
-    padding: 20px;
-    overflow: hidden; /* Taşma durumunu gizler */
-    height: calc(100vh - 80px); /* Ekran yüksekliği */
-  }
-  
+.platform-page-container {
+  padding: 20px;
+  padding-left: 300px; /* Sayfanın başından 250px boşluk bırakır */
+  padding-top: 100px;
+
+}
+
+.platform-table-container {
+  margin-top: 20px;
+}
+
+.platform-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.platform-table th,
+.platform-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.platform-table th {
+  background-color: #f4f4f4;
+  text-align: left;
+}
+
+.platform-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.platform-table tr:hover {
+  background-color: #f1f1f1;
+}

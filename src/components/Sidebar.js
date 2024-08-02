@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaHome, FaBuilding, FaChevronDown, FaChevronUp, FaBars, FaTimes } from 'react-icons/fa';
 import './Sidebar.css';
 import logo from '../images/logo.png'; // Logo resmini import edin
+import { auth } from '../firebase'; // Firebase konfigürasyonunu import edin
+import { signOut } from 'firebase/auth'; // Firebase Auth'un çıkış yapma işlevini import edin
 
 const Sidebar = () => {
   const [isBranchMenuOpen, setIsBranchMenuOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const navigate = useNavigate(); // React Router kullanıyorsanız sayfa yönlendirme için
 
   const handleBranchMenuToggle = () => {
     setIsBranchMenuOpen(!isBranchMenuOpen);
@@ -15,6 +18,43 @@ const Sidebar = () => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  const handleLogout = () => {
+    signOut(auth).then(() => {
+      alert('Başarıyla çıkış yaptınız!');
+      navigate('/login'); // Giriş sayfasına yönlendir
+    }).catch((error) => {
+      console.error('Çıkış yaparken bir hata oluştu:', error);
+    });
+  };
+
+  // handleInactivity fonksiyonunu useCallback ile sarmalamak
+  const handleInactivity = useCallback(() => {
+    signOut(auth).then(() => {
+      alert('5 dakikalık süre doldu. Otomatik olarak çıkış yapıldı.');
+      navigate('/login'); // Giriş sayfasına yönlendir
+    }).catch((error) => {
+      console.error('Otomatik çıkış yaparken bir hata oluştu:', error);
+    });
+  }, [navigate]);
+
+  useEffect(() => {
+    let inactivityTimer = setTimeout(handleInactivity, 5 * 60 * 1000);
+
+    const resetTimer = () => {
+      clearTimeout(inactivityTimer);
+      inactivityTimer = setTimeout(handleInactivity, 5 * 60 * 1000);
+    };
+
+    window.addEventListener('mousemove', resetTimer);
+    window.addEventListener('keypress', resetTimer);
+
+    return () => {
+      clearTimeout(inactivityTimer);
+      window.removeEventListener('mousemove', resetTimer);
+      window.removeEventListener('keypress', resetTimer);
+    };
+  }, [handleInactivity]);
 
   return (
     <div className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
@@ -43,7 +83,7 @@ const Sidebar = () => {
         </div>
       </nav>
       <div className="logout">
-        <button>Çıkış</button>
+        <button onClick={handleLogout}>Çıkış</button>
       </div>
     </div>
   );

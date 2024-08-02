@@ -118,8 +118,10 @@ a:hover {
   }
 
   .branch-card, .platform-card {
-    width: 100%; /* Kart genişliğini mobilde tam genişlik yap */
+    width: 50%; /* Kart genişliğini mobilde tam genişlik yap */
     margin: 0.3125rem 0; /* Kartlar arasında dikey boşluk */
+    flex-direction: column; /* Kartları alt alta diz */
+    align-items: center; /* Kartları ortala *
   }
 
   button {
