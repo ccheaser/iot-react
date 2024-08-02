@@ -1,0 +1,16 @@
+.branch-page-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Kartlar yatayda hizalanır ve yer kalmadığında alt satıra geçer */
+    gap: 20px; /* Kartlar arasındaki boşluk */
+    padding: 20px;
+    overflow: hidden; /* Taşma durumunu gizler */
+  }
+  
+  .branch-page-heading {
+    grid-column: 1 / -1; /* Başlığı tam genişlikte göstermek için */
+    text-align: center; /* Başlığı ortalamak için */
+    margin-bottom: 20px; /* Kartlarla başlık arasına boşluk eklemek için */
+    font-size: 2rem; /* Başlık boyutunu ayarlamak için */
+    color: #333; /* Başlık rengi */
+  }
+  

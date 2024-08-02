@@ -1,0 +1,217 @@
+/* Genel Sidebar Stilleri */
+.sidebar {
+  background-color: #ffffff;
+  color: #000000;
+  width: 15.625rem; /* Sidebar genişliği */
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px; /* Logodan aşağıya boşluk ekledik */
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+/* Menü Butonları */
+.menu-toggle {
+  display: none; /* Varsayılan olarak gizle */
+}
+
+/* Navigasyon Butonları */
+.nav-buttons {
+  margin-top: 20px; /* Logodan ve küçük yazıdan yukarıya boşluk ekledik */
+  flex: 1;
+}
+
+/* Menü Linkleri */
+.nav-link {
+  display: flex;
+  align-items: center;
+  color: #000000; /* Yazı rengini siyah yapar */
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  margin-bottom: 100px; /* Aralarındaki boşluğu artırmak için */
+  font-size: 1rem; /* Font boyutu eşitlenmiş */
+  position: relative; /* Konumlandırma için relative */
+}
+
+/* "Anasayfa" Linki İçin Küçük Yazı */
+.nav-link.home-link {
+  color: #000000; /* "Anasayfa" yazı rengini siyah yapar */
+  position: relative;
+}
+
+.nav-link.home-link .nav-link-small-text {
+  position: absolute;
+  top: -40px; /* Küçük yazının üstte olmasını sağlar ve logo ile araya boşluk ekler */
+  left: 10px; /* Sol mesafe */
+  font-size: 0.8rem; /* Daha küçük font boyutu */
+  font-weight: 500; /* Poppins Medium */
+  color: #000000; /* Yazı rengi siyah */
+  margin-bottom: 10px; /* Küçük yazı ile yönlendirme yazısı arasındaki boşluk */
+}
+
+.nav-link.home-link .nav-link-label {
+  margin-left: 15px; /* İkon ile yönlendirme yazısı arasındaki boşluk */
+}
+
+/* "Şubeler" Linki İçin Küçük Yazı */
+.nav-link.branch-link {
+  color: #000000; /* "Şubeler" yazı rengini siyah yapar */
+  position: relative;
+}
+
+.nav-link.branch-link .nav-link-small-text {
+  position: absolute;
+  top: -40px; /* Küçük yazının üstte olmasını sağlar ve "Şubeler" ile araya boşluk ekler */
+  left: 10px; /* Sol mesafe */
+  font-size: 0.8rem; /* Daha küçük font boyutu */
+  font-weight: 500; /* Poppins Medium */
+  color: #000000; /* Yazı rengi siyah */
+  margin-bottom: 20px; /* Küçük yazı ile yönlendirme yazısı arasındaki boşluk */
+}
+
+.nav-link.branch-link .nav-link-label {
+  margin-left: 15px; /* İkon ile yönlendirme yazısı arasındaki boşluk */
+}
+
+.nav-link.home-link::after {
+  content: "";
+  display: block;
+  height: 4px;
+  background-color: #000000; /* Çizgi rengini siyah yapar */
+  border-radius: 2px;
+  position: absolute;
+  bottom: -30px; /* Çizgi ile yazı arasındaki boşluk */
+  left: 0;
+  width: 100%;
+}
+
+.nav-link.branch-link::after {
+  content: "";
+  display: block; /* Çizgi yüksekliği */
+  background-color: #000000; /* Çizgi rengini siyah yapar */
+  border-radius: 2px;
+  position: absolute;
+  bottom: 0px; /* Çizgi ile yazı arasındaki boşluk */
+  left: 0;
+  width: 100%;
+}
+
+/* Şubeler Menü İçeriği */
+.branch-menu {
+  display: none;
+  flex-direction: column;
+  margin-top: 20px; /* Menü içeriği için üst margin */
+}
+
+/* Şubeler Menü Açıldığında Görünür */
+.branch-menu.open {
+  display: flex;
+}
+
+/* Şube Linkleri */
+.branch-link-item {
+  color: #000000; /* Yazı rengini siyah yapar */
+  text-decoration: none;
+  padding: 10px;
+  transition: background-color 0.3s;
+  border-radius: 4px;
+}
+
+.branch-link-item:hover {
+  background-color: #34495e;
+}
+
+/* Dropdown Menü */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #000000; /* Yazı rengini siyah yapar */
+  text-align: left;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #34495e;
+  padding: 10px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dropdown-link {
+  color: #000000; /* Yazı rengini siyah yapar */
+  text-decoration: none;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.dropdown-link:hover {
+  background-color: #2c3e50;
+}
+
+.logout button {
+  background: none;
+  border: none;
+  color: #000000; /* Yazı rengini siyah yapar */
+  cursor: pointer;
+}
+
+/* Medya Sorguları */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .content {
+    margin-left: 0;
+  }
+}

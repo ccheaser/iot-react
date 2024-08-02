@@ -1,0 +1,103 @@
+/* src/pages/LoginPage.css */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../images/rm309-adj-03.jpg'); /* Arka plan resmi yolu */
+  background-size: cover; /* Resmin tüm sayfayı kaplamasını sağlar */
+  background-position: center; /* Resmin ortalanmasını sağlar */
+  background-repeat: no-repeat; /* Resmin tekrar etmemesini sağlar */
+  font-family: Poppins, sans-serif; /* Font-family ile Poppins ekledik */
+}
+
+.login-form-container {
+  background: rgba(255, 255, 255, 0.8); /* Yarı şeffaf beyaz arka plan */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  padding: 3rem;
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  backdrop-filter: blur(10px); /* Arka planı bulanıklaştırır */
+  -webkit-backdrop-filter: blur(10px); /* Webkit tarayıcıları için destek */
+}
+
+.login-form-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+  color: #333;
+}
+
+.login-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form-container .form-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.login-form-container input {
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 1.15rem;
+  color: #333;
+  transition: border-color 0.3s ease;
+  background-color: #f9f9f9;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login-form-container input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.2);
+}
+
+.login-form-container input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.login-form-container button {
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form-container button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: #ff4d4d;
+  margin-top: 1rem;
+}
+
+.login-link {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.login-link p {
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}

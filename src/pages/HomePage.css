@@ -1,0 +1,24 @@
+body {
+  font-family: Poppins;
+  background-color: rgb(245, 244, 244);
+}
+
+.homepage-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 50px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: calc(100vh - 80px);
+  margin-left: 400px;
+}
+
+.homepage-heading {
+  margin-top: 100px;
+  margin-left: 1000px;
+  color: black;
+  z-index: 999;
+}
+
+

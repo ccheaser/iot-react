@@ -1,0 +1,138 @@
+/* Genel Stiller */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #333;
+  box-sizing: border-box; /* Box-sizing tüm elementlerde kullanılacak */
+}
+
+h1, h2 {
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Ana Sayfa ve Şube Sayfaları */
+div {
+  padding: 1.25rem; /* Padding'i rem ile ayarla */
+  margin: 0;
+  box-sizing: border-box; /* Box-sizing tüm elementlerde kullanılacak */
+}
+
+/* Kart Stili */
+.branch-card, .platform-card {
+  background: #ffffff;
+  border-radius: 0.5rem; /* Border-radius rem ile ayarla */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  padding: 1.25rem; /* Padding'i rem ile ayarla */
+  margin: 1.25rem; /* Margin'i rem ile ayarla */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box; /* Box-sizing kartların içeriğine uyum sağlar */
+}
+
+.branch-card {
+  width: 37.5rem; /* Kart genişliği rem ile ayarla (600px) */
+  height: 15.5rem; /* Kart yüksekliği rem ile ayarla */
+}
+
+.platform-card {
+  width: 15rem; /* Kart genişliği rem ile ayarla */
+  height: 10rem; /* Kart yüksekliği rem ile ayarla */
+}
+
+.branch-card:hover, .platform-card:hover {
+  transform: translateY(-0.625rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.branch-card h2, .platform-card h2 {
+  margin-bottom: 0.9375rem; /* Margin-bottom rem ile ayarla */
+}
+
+/* Düğme Stili */
+button {
+  background-color: #007bff;
+  border: none;
+  border-radius: 0.25rem; /* Border-radius rem ile ayarla */
+  color: #ffffff;
+  padding: 0.625rem 1.25rem; /* Padding'i rem ile ayarla */
+  font-size: 1rem; /* Font boyutu rem ile ayarla */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Link Stili */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.app {
+  display: flex;
+  flex-direction: column; /* İçerik üst üste gelmesin diye */
+}
+
+.content {
+  margin-top: 3.125rem; /* Header yüksekliği kadar boşluk bırakılır */
+  padding: 1.25rem;
+  margin-left: 15.625rem; /* Sidebar genişliği */
+  flex: 1;
+  overflow-x: hidden; /* Yatay kaydırmayı gizle */
+  overflow-y: auto; /* Dikey kaydırmayı kontrol et */
+}
+
+/* Kartları düzenleme */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap; /* Kartların taşmasını ve alt alta görünmesini sağlar */
+  gap: 1.25rem; /* Kartlar arasındaki boşluğu ayarla */
+}
+
+/* Medya Sorguları */
+@media (max-width: 1024px) {
+  .content {
+    margin-left: 12.5rem; /* Daha küçük ekranlarda sidebar genişliği azaltılabilir */
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0; /* Sidebar'ı mobilde gizle */
+    padding: 0.625rem; /* İçerik padding'ini küçült */
+  }
+
+  .cards-container {
+    flex-direction: column; /* Kartları alt alta diz */
+    align-items: center; /* Kartları ortala */
+  }
+
+  .branch-card, .platform-card {
+    width: 100%; /* Kart genişliğini mobilde tam genişlik yap */
+    margin: 0.3125rem 0; /* Kartlar arasında dikey boşluk */
+  }
+
+  button {
+    font-size: 0.875rem; /* Buton font boyutunu küçült */
+  }
+}
+
+@media (max-width: 576px) {
+  .branch-card, .platform-card {
+    margin: 0.3125rem 0; /* Kartlar arasında daha da küçük boşluk */
+  }
+
+  button {
+    font-size: 0.75rem; /* Buton font boyutunu daha da küçült */
+  }
+}

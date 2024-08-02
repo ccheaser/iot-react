@@ -1,0 +1,9 @@
+.platforms-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Kartlar yatayda hizalanır ve yer kalmadığında alt satıra geçer */
+    gap: 20px; /* Kartlar arasındaki boşluk */
+    padding: 20px;
+    overflow: hidden; /* Taşma durumunu gizler */
+    height: calc(100vh - 80px); /* Ekran yüksekliği */
+  }
+  
