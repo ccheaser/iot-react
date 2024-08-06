@@ -9,7 +9,8 @@ const BranchPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [platformData, setPlatformData] = useState([]);
-  
+  const [supurgeData, setSupurgeData] = useState([]);
+
   useEffect(() => {
     const db = getDatabase();
     const auth = getAuth();
@@ -30,15 +31,31 @@ const BranchPage = () => {
     const db = getDatabase();
     
     // Firebase referanslarını oluştur
-    const platformRefs = Array.from({ length: 11 }, (_, i) => ref(db, `para${i + 1}`));
-    
-    // Para verilerini almak
-    Promise.all(platformRefs.map(ref => 
+    const peronRefs = Array.from({ length: 8 }, (_, i) => ref(db, `sube1/peronlar/peron${i + 1}`));
+    const supurgeRefs = Array.from({ length: 3 }, (_, i) => ref(db, `sube1/supurgeler/supurge${i + 1}`));
+
+    // Peron verilerini almak
+    Promise.all(peronRefs.map(peronRef => 
       new Promise((resolve) => 
-        onValue(ref, (snapshot) => resolve(snapshot.val()))
+        onValue(peronRef, (snapshot) => resolve(snapshot.val()))
       )
     )).then(values => {
-      setPlatformData(values);
+      setPlatformData(values.map((value, index) => ({
+        name: `peron${index + 1}`,
+        value
+      })));
+    });
+
+    // Supurge verilerini almak
+    Promise.all(supurgeRefs.map(supurgeRef => 
+      new Promise((resolve) => 
+        onValue(supurgeRef, (snapshot) => resolve(snapshot.val()))
+      )
+    )).then(values => {
+      setSupurgeData(values.map((value, index) => ({
+        name: `supurge${index + 1}`,
+        value
+      })));
     });
 
   }, []);
@@ -46,9 +63,30 @@ const BranchPage = () => {
   return (
     <div className="branch-page-container">
       <h1 className="branch-page-heading">Şube {id} Sayfası</h1>
-      {platformData.map((tokenValue, index) => (
-        <PlatformCard key={index} name={`Peron ${index + 1}`} tokenValue={tokenValue} />
-      ))}
+      
+      {platformData.length === 0 ? (
+        <p>No peron data available</p>
+      ) : (
+        platformData.map((data, index) => (
+          <PlatformCard 
+            key={`peron-${index}`} 
+            name={`Peron ${data.name.replace('peron', '')}`} 
+            tokenValue={data.value} 
+          />
+        ))
+      )}
+
+      {supurgeData.length === 0 ? (
+        <p>No supurge data available</p>
+      ) : (
+        supurgeData.map((data, index) => (
+          <PlatformCard 
+            key={`supurge-${index}`} 
+            name={`Supurge ${data.name.replace('supurge', '')}`} 
+            tokenValue={data.value} 
+          />
+        ))
+      )}
     </div>
   );
 };
