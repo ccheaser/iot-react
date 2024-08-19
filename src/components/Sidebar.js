@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaHome, FaBuilding, FaChevronDown, FaChevronUp, FaBars, FaTimes } from 'react-icons/fa';
+import { FaHome, FaBuilding, FaChevronDown, FaChevronUp, FaBars, FaTimes, FaCog } from 'react-icons/fa'; // FaCog eklendi
 import './Sidebar.css';
 import logo from '../images/logo.png'; // Logo resmini import edin
 import { auth } from '../firebase'; // Firebase konfigürasyonunu import edin
@@ -81,6 +81,11 @@ const Sidebar = () => {
           <Link to="/branch/şube-2" className="branch-link-item">Şube 2</Link>
           {/* Diğer şubeleri buraya ekleyin */}
         </div>
+        {/* Ayarlar Linki */}
+        <Link to="/settings" className="nav-link settings-link">
+          <FaCog className="nav-icon" />
+          <div className="nav-link-label">Ayarlar</div>
+        </Link>
       </nav>
       <div className="logout">
         <button onClick={handleLogout}>Çıkış</button>

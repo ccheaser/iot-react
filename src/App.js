@@ -7,6 +7,7 @@ import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import SettingsPage from './pages/SettingsPage'; // SettingsPage import edildi
 import PrivateRoute from './components/PrivateRoute'; // Güncellenmiş PrivateRoute
 
 const App = () => {
@@ -57,6 +58,22 @@ const App = () => {
                   <div className="content">
                     <Header />
                     <PlatformPage />
+                  </div>
+                </div>
+              }
+            />
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            <PrivateRoute
+              element={
+                <div className="main-layout">
+                  <Sidebar />
+                  <div className="content">
+                    <Header />
+                    <SettingsPage />
                   </div>
                 </div>
               }

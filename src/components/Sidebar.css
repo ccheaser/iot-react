@@ -237,3 +237,24 @@
   background-color: #000000; /* Hover durumunda arka plan rengini değiştirir */
   color: #ffffff; /* Hover durumunda yazı rengini beyaz yapar */
 }
+
+/* Ayarlar Linki */
+.nav-link.settings-link {
+  color: #000000;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+  margin-bottom: 10px; /* Ayarlar linki ile diğer linkler arasındaki boşluk */
+}
+
+.nav-link.settings-link:hover {
+  background-color: #34495e;
+}
+
+/* İkon ve Yazı Arasındaki Boşluk */
+.nav-link.settings-link .nav-link-label {
+  margin-left: 15px;
+}

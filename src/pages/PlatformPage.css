@@ -1,8 +1,7 @@
 .platform-page-container {
   padding: 20px;
-  padding-left: 300px; /* Sayfanın başından 250px boşluk bırakır */
+  padding-left: 300px; /* Sayfanın başından 300px boşluk bırakır */
   padding-top: 100px;
-
 }
 
 .platform-table-container {
@@ -31,4 +30,92 @@
 
 .platform-table tr:hover {
   background-color: #f1f1f1;
+}
+
+/* Durum Kartları ve Durum Göstergeleri */
+.durum-cards-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Bir satırda 5 kart */
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.durum-card {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  height: 250px; /* Sabit yükseklik */
+}
+
+.durum-card.active {
+  box-shadow: 0 4px 10px rgba(0, 255, 0, 0.5); /* Aktif kart daha parlak */
+}
+
+.status-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 10px auto;
+}
+
+.online {
+  background-color: green;
+}
+
+.offline {
+  background-color: grey;
+}
+
+.error-message {
+  color: red;
+}
+
+/* Timer Container */
+.timer-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.timer-item {
+  text-align: center;
+}
+
+/* Circular Timer Styles */
+.circular-timer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.circular-timer svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.circular-timer circle {
+  fill: none;
+  stroke: #4caf50;
+  stroke-width: 10;
+  stroke-dasharray: 282;
+  stroke-dashoffset: 282;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.timer-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-weight: bold;
 }
